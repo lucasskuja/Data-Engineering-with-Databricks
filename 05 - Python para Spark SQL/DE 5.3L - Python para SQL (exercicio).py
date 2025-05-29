@@ -245,7 +245,7 @@ display(results)
 # COMMAND ----------
 
 # TODO
-def preview_values(state=<FILL-IN>, render_results=<FILL-IN>):
+def preview_values(state=None, render_results=None):
     query = <FILL-IN>
 
     if state is not None:

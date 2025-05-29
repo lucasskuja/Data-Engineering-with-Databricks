@@ -40,7 +40,7 @@
 
 # MAGIC %sql
 # MAGIC -- TODO
-# MAGIC <FILL-IN>
+# MAGIC --<FILL-IN>
 
 # COMMAND ----------
 
@@ -97,7 +97,7 @@
 # COMMAND ----------
 
 # TODO
-<FILL-IN>
+#<FILL-IN>
 
 # COMMAND ----------
 

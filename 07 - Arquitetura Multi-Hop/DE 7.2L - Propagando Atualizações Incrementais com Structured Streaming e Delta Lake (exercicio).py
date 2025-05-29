@@ -44,14 +44,14 @@
 # TODO
 customers_checkpoint_path = f"{DA.paths.checkpoints}/customers"
 
-query = (spark
-  .readStream
-  <FILL-IN>
-  .load("/databricks-datasets/retail-org/customers/")
-  .writeStream
-  <FILL-IN>
-  .table("bronze")
-)
+#query = (spark
+#  .readStream
+#  <FILL-IN>
+#  .load("/databricks-datasets/retail-org/customers/")
+#  .writeStream
+#  <FILL-IN>
+#  .table("bronze")
+#)
 
 # COMMAND ----------
 
