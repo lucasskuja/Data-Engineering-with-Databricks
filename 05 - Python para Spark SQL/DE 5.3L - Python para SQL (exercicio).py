@@ -245,15 +245,15 @@ display(results)
 # COMMAND ----------
 
 # TODO
-def preview_values(state=None, render_results=None):
-    query = "SELECT * FROM table_name WHERE condition" 
-
-    if state is not None:
-        None
-
-    if render_results
-        None
-
+#def preview_values(state=None, render_results=None):
+#    query = "SELECT * FROM table_name WHERE condition" 
+#
+#    if state is not None:
+#        
+#
+#    if render_results
+#        
+#
 
 # COMMAND ----------
 

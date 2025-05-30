@@ -55,7 +55,8 @@ query = (spark.readStream\
 # COMMAND ----------
 
 from pyspark.sql import Row
-assert Row(tableName="customers_raw_temp", isTemporary=True) in spark.sql("show tables").select("tableName", "isTemporary").collect(), "Table not present or not temporary"
+
+assert Row(tableName="customers_raw_temp", isTemporary=True) in spark.sql("show tables").select("tableName", "isTemporary").collect(), "Tabela não encontrada ou não é temporária"
 assert spark.table("customers_raw_temp").dtypes ==  [('customer_id', 'string'),
  ('tax_id', 'string'),
  ('tax_code', 'string'),
