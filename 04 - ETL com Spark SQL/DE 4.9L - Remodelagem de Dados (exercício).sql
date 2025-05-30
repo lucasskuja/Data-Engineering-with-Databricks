@@ -86,11 +86,11 @@
 -- COMMAND ----------
 
 -- TODO
-CREATE OR REPLACE VIEW events_pivot
-<FILL_IN>
-("cart", "pillows", "login", "main", "careers", "guest", "faq", "down", "warranty", "finalize", 
-"register", "shipping_info", "checkout", "mattresses", "add_item", "press", "email_coupon", 
-"cc_info", "foam", "reviews", "original", "delivery", "premium")
+--CREATE OR REPLACE VIEW events_pivot
+--<FILL_IN>
+--("cart", "pillows", "login", "main", "careers", "guest", "faq", "down", "warranty", "finalize", 
+--"register", "shipping_info", "checkout", "mattresses", "add_item", "press", "email_coupon", 
+--"cc_info", "foam", "reviews", "original", "delivery", "premium")
 
 -- COMMAND ----------
 
@@ -156,8 +156,8 @@ CREATE OR REPLACE VIEW events_pivot
 -- COMMAND ----------
 
 -- TODO
-CREATE OR REPLACE VIEW clickpaths AS
-<FILL_IN>
+--CREATE OR REPLACE VIEW clickpaths AS
+--<FILL_IN>
 
 -- COMMAND ----------
 
@@ -195,10 +195,10 @@ CREATE OR REPLACE VIEW clickpaths AS
 -- COMMAND ----------
 
 -- TODO
-CREATE OR REPLACE TABLE sales_product_flags AS
-<FILL_IN>
-EXISTS <FILL_IN>.item_name LIKE "%Mattress"
-EXISTS <FILL_IN>.item_name LIKE "%Pillow"
+--CREATE OR REPLACE TABLE sales_product_flags AS
+--<FILL_IN>
+--EXISTS <FILL_IN>.item_name LIKE "%Mattress"
+--EXISTS <FILL_IN>.item_name LIKE "%Pillow"
 
 -- COMMAND ----------
 

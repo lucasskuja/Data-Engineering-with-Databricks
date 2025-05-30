@@ -34,9 +34,9 @@
 -- COMMAND ----------
 
 -- TODO
-CREATE <FILL-IN>
-AS SELECT <FILL-IN>
-  FROM cloud_files("${source}", "json", map("cloudFiles.schemaHints", "time DOUBLE"))
+--CREATE <FILL-IN>
+--AS SELECT <FILL-IN>
+--  FROM cloud_files("${source}", "json", map("cloudFiles.schemaHints", "time DOUBLE"))
 
 -- COMMAND ----------
 
@@ -59,9 +59,9 @@ AS SELECT <FILL-IN>
 -- COMMAND ----------
 
 -- TODO
-CREATE <FILL-IN> pii
-AS SELECT *
-  FROM cloud_files("/mnt/training/healthcare/patient", "csv", map(<FILL-IN>))
+--CREATE <FILL-IN> pii
+--AS SELECT *
+--  FROM cloud_files("/mnt/training/healthcare/patient", "csv", map(<FILL-IN>))
 
 -- COMMAND ----------
 
@@ -87,15 +87,15 @@ AS SELECT *
 -- COMMAND ----------
 
 -- TODO
-CREATE OR REFRESH STREAMING LIVE TABLE recordings_enriched
-  (<FILL-IN add a constraint to drop records when heartrate ! > 0>)
-AS SELECT 
-  CAST(<FILL-IN>) device_id, 
-  <FILL-IN mrn>, 
-  <FILL-IN heartrate>, 
-  CAST(FROM_UNIXTIME(DOUBLE(time), 'yyyy-MM-dd HH:mm:ss') AS TIMESTAMP) time 
-  FROM STREAM(live.recordings_bronze)
-  <FILL-IN specify source and perform inner join with pii on mrn>
+--CREATE OR REFRESH STREAMING LIVE TABLE recordings_enriched
+--  (<FILL-IN add a constraint to drop records when heartrate ! > 0>)
+--AS SELECT 
+--  CAST(<FILL-IN>) device_id, 
+--  <FILL-IN mrn>, 
+--  <FILL-IN heartrate>, 
+--  CAST(FROM_UNIXTIME(DOUBLE(time), 'yyyy-MM-dd HH:mm:ss') AS TIMESTAMP) time 
+--  FROM STREAM(live.recordings_bronze)
+--  <FILL-IN specify source and perform inner join with pii on mrn>
 
 -- COMMAND ----------
 
@@ -116,9 +116,9 @@ AS SELECT
 -- COMMAND ----------
 
 -- TODO
-CREATE <FILL-IN> daily_patient_avg
-  COMMENT <FILL-IN insert comment here>
-AS SELECT <FILL-IN>
+--CREATE <FILL-IN> daily_patient_avg
+--  COMMENT <FILL-IN insert comment here>
+--AS SELECT <FILL-IN>
 
 -- COMMAND ----------
 

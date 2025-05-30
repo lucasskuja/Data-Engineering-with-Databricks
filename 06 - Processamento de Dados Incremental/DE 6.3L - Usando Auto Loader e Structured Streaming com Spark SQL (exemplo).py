@@ -92,9 +92,9 @@ assert spark.table("customers_raw_temp").dtypes ==  [('customer_id', 'string'),
 # MAGIC %sql
 # MAGIC -- TODO
 # MAGIC
-# MAGIC CREATE OR REPLACE TEMPORARY VIEW customer_count_by_state_temp AS
-# MAGIC SELECT
-# MAGIC   <FILL-IN>
+# MAGIC --CREATE OR REPLACE TEMPORARY VIEW customer_count_by_state_temp AS
+# MAGIC --SELECT
+# MAGIC --  <FILL-IN>
 
 # COMMAND ----------
 
@@ -113,10 +113,10 @@ assert spark.table("customer_count_by_state_temp").dtypes == [('state', 'string'
 # COMMAND ----------
 
 # TODO
-customers_count_checkpoint_path = f"{DA.paths.checkpoints}/customers_count"
-
-query = (spark
-  <FILL-IN>
+# customers_count_checkpoint_path = f"{DA.paths.checkpoints}/customers_count"
+# 
+# query = (spark
+#   <FILL-IN>
 
 # COMMAND ----------
 
