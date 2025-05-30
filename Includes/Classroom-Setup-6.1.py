@@ -7,16 +7,19 @@
 
 # COMMAND ----------
 
+
 class DataFactory:
-    def __init__(self, ):
+    def __init__(
+        self,
+    ):
         self.source = "/mnt/training/healthcare/tracker/streaming/"
         self.userdir = f"{DA.paths.working_dir}/tracker"
         self.curr_mo = 1
-    
+
     def load(self, continuous=False):
         if self.curr_mo > 12:
             print("Data source exhausted\n")
-            
+
         elif continuous == True:
             while self.curr_mo <= 12:
                 curr_file = f"{self.curr_mo:02}.json"
@@ -29,14 +32,17 @@ class DataFactory:
             dbutils.fs.cp(f"{self.source}/{curr_file}", target_dir)
             self.curr_mo += 1
 
+
 # COMMAND ----------
 
 DA.init()
-DA.paths.checkpoints = f"{DA.paths.working_dir}/checkpoints"    
+DA.paths.checkpoints = f"{DA.paths.working_dir}/checkpoints"
 DA.data_factory = DataFactory()
 
 print()
 DA.data_factory.load()
 DA.conclude_setup()
 
-sqlContext.setConf("spark.sql.shuffle.partitions", spark.sparkContext.defaultParallelism)
+sqlContext.setConf(
+    "spark.sql.shuffle.partitions", spark.sparkContext.defaultParallelism
+)

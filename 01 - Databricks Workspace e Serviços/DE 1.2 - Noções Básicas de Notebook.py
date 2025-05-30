@@ -37,7 +37,7 @@
 # MAGIC
 # MAGIC Logo abaixo do nome deste notebook, na parte superior da sua tela, use a lista suspensa para conectar este notebook ao seu cluster.
 # MAGIC
-# MAGIC **OBSERVAÇÃO**: A implantação de um cluster pode levar vários minutos. Uma seta verde aparecerá à direita do nome do cluster assim que os recursos forem implantados.  
+# MAGIC **OBSERVAÇÃO**: A implantação de um cluster pode levar vários minutos. Uma seta verde aparecerá à direita do nome do cluster assim que os recursos forem implantados.
 # MAGIC Se o seu cluster tiver um círculo cinza sólido à esquerda, você precisará seguir as instruções para <a href="https://docs.databricks.com/clusters/clusters-manage.html#start-a-cluster" target="_blank">iniciar um cluster</a>.
 
 # COMMAND ----------
@@ -64,9 +64,9 @@ print("I'm running Python!")
 
 # MAGIC %md
 # MAGIC
-# MAGIC **OBSERVAÇÃO**: A execução de código célula por célula significa que as células podem ser executadas várias vezes ou fora de ordem. A menos que seja instruído explicitamente, você deve sempre assumir que os notebooks deste curso devem ser executados uma célula por vez, de cima para baixo. 
+# MAGIC **OBSERVAÇÃO**: A execução de código célula por célula significa que as células podem ser executadas várias vezes ou fora de ordem. A menos que seja instruído explicitamente, você deve sempre assumir que os notebooks deste curso devem ser executados uma célula por vez, de cima para baixo.
 # MAGIC
-# MAGIC Se você encontrar um erro, leia o texto antes e depois da célula para garantir que o erro não foi incluído intencionalmente como parte do aprendizado, antes de tentar resolver. 
+# MAGIC Se você encontrar um erro, leia o texto antes e depois da célula para garantir que o erro não foi incluído intencionalmente como parte do aprendizado, antes de tentar resolver.
 # MAGIC
 # MAGIC A maioria dos erros pode ser resolvida executando células anteriores que foram ignoradas ou reexecutando o notebook inteiro desde o início.
 
@@ -111,11 +111,11 @@ print("I'm running Python!")
 # MAGIC %md
 # MAGIC
 # MAGIC ## Comandos Mágicos (Magic Commands)
-# MAGIC * Comandos mágicos são específicos dos notebooks do Databricks  
-# MAGIC * Eles são muito semelhantes aos comandos mágicos encontrados em outros ambientes de notebooks semelhantes  
-# MAGIC * São comandos integrados que produzem o mesmo resultado independentemente da linguagem do notebook  
-# MAGIC * Um símbolo de porcentagem (%) no início de uma célula identifica um comando mágico  
-# MAGIC   * Só é possível ter **um único** comando mágico por célula  
+# MAGIC * Comandos mágicos são específicos dos notebooks do Databricks
+# MAGIC * Eles são muito semelhantes aos comandos mágicos encontrados em outros ambientes de notebooks semelhantes
+# MAGIC * São comandos integrados que produzem o mesmo resultado independentemente da linguagem do notebook
+# MAGIC * Um símbolo de porcentagem (%) no início de uma célula identifica um comando mágico
+# MAGIC   * Só é possível ter **um único** comando mágico por célula
 # MAGIC   * Um comando mágico deve ser **a primeira linha** da célula
 # MAGIC
 
@@ -235,7 +235,7 @@ print("Hello Python!")
 
 # COMMAND ----------
 
-# MAGIC %sql 
+# MAGIC %sql
 # MAGIC SELECT * FROM demo_tmp_vw
 
 # COMMAND ----------
@@ -281,7 +281,7 @@ print(f"DA.db_name:           {DA.db_name}")
 
 # MAGIC %md
 # MAGIC
-# MAGIC ## Utilitários do Databricks  
+# MAGIC ## Utilitários do Databricks
 # MAGIC Os notebooks do Databricks fornecem diversos comandos utilitários para configurar e interagir com o ambiente: <a href="https://docs.databricks.com/user-guide/dev-tools/dbutils.html" target="_blank">documentação do dbutils</a>
 # MAGIC
 # MAGIC Ao longo deste curso, usaremos ocasionalmente o comando **`dbutils.fs.ls()`** para listar diretórios de arquivos a partir de células Python.

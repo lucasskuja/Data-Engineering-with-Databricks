@@ -74,10 +74,10 @@
 # TODO
 # CREATE OR REFRESH STREAMING LIVE TABLE recordings_enriched
 #   (CONSTRAINT positive_heartrate EXPECT (heartrate > 0) ON VIOLATION DROP ROW)
-# AS SELECT 
-#   CAST(a.device_id AS INTEGER) device_id, 
-#   CAST(a.mrn AS LONG) mrn, 
-#   CAST(a.heartrate AS DOUBLE) heartrate, 
+# AS SELECT
+#   CAST(a.device_id AS INTEGER) device_id,
+#   CAST(a.mrn AS LONG) mrn,
+#   CAST(a.heartrate AS DOUBLE) heartrate,
 #   CAST(from_unixtime(a.time, 'yyyy-MM-dd HH:mm:ss') AS TIMESTAMP) time,
 #   b.name
 #   FROM STREAM(live.recordings_bronze) a
@@ -97,7 +97,7 @@
 # COMMAND ----------
 
 # TODO
-#<FILL-IN>
+# <FILL-IN>
 
 # COMMAND ----------
 

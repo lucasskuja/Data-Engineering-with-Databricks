@@ -14,7 +14,7 @@ DA.init()
 DA.paths.data_source = "/mnt/training/healthcare"
 DA.paths.storage_location = f"{DA.paths.working_dir}/storage"
 
-DA.paths.data_landing_location    = f"{DA.paths.working_dir}/source/tracker"
+DA.paths.data_landing_location = f"{DA.paths.working_dir}/source/tracker"
 
 DA.data_factory = DltDataFactory()
 DA.conclude_setup()

@@ -81,7 +81,7 @@ DA.data_factory.load()
 
 # COMMAND ----------
 
-DA.print_pipeline_config()    
+DA.print_pipeline_config()
 
 # COMMAND ----------
 

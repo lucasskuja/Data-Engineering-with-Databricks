@@ -9,14 +9,19 @@ DA.conclude_setup()
 
 # COMMAND ----------
 
+
 def print_sql(rows, sql):
-    html = f"<textarea style=\"width:100%\" rows={rows}> \n{sql.strip()}</textarea>"
+    html = f'<textarea style="width:100%" rows={rows}> \n{sql.strip()}</textarea>'
     displayHTML(html)
+
 
 # COMMAND ----------
 
+
 def _generate_config():
-    print_sql(33, f"""
+    print_sql(
+        33,
+        f"""
 CREATE DATABASE IF NOT EXISTS {DA.db_name}
 LOCATION '{DA.paths.working_dir}';
 
@@ -48,14 +53,19 @@ CREATE FUNCTION is_active()
         WHEN rand() > .25 THEN true
         ELSE false
         END;
-""")
-    
-DA.generate_config = _generate_config    
+""",
+    )
+
+
+DA.generate_config = _generate_config
 
 # COMMAND ----------
 
+
 def _generate_load():
-    print_sql(12, f"""
+    print_sql(
+        12,
+        f"""
 USE {DA.db_name};
 
 INSERT INTO user_ping
@@ -66,14 +76,19 @@ FROM user_ids
 WHERE is_active()=true;
 
 SELECT * FROM user_ping;
-""")
+""",
+    )
+
 
 DA.generate_load = _generate_load
 
 # COMMAND ----------
 
+
 def _generate_user_counts():
-    print_sql(10, f"""
+    print_sql(
+        10,
+        f"""
 USE {DA.db_name};
 
 SELECT user_id, count(*) total_records
@@ -82,14 +97,19 @@ GROUP BY user_id
 ORDER BY 
   total_records DESC,
   user_id ASC;
-""")
+""",
+    )
+
 
 DA.generate_user_counts = _generate_user_counts
 
 # COMMAND ----------
 
+
 def _generate_avg_ping():
-    print_sql(10, f"""
+    print_sql(
+        10,
+        f"""
 USE {DA.db_name};
 
 SELECT user_id, window.end end_time, mean(ping) avg_ping
@@ -98,20 +118,27 @@ GROUP BY user_id, window(time, '3 minutes')
 ORDER BY
   end_time DESC,
   user_id ASC;
-""")
+""",
+    )
+
 
 DA.generate_avg_ping = _generate_avg_ping
 
 # COMMAND ----------
 
+
 def _generate_summary():
-    print_sql(8, f"""
+    print_sql(
+        8,
+        f"""
 USE {DA.db_name};
 
 SELECT user_id, min(time) first_seen, max(time) last_seen, count(*) total_records, avg(ping) total_avg_ping
 FROM user_ping
 GROUP BY user_id
 ORDER BY user_id ASC;
-""")
-    
+""",
+    )
+
+
 DA.generate_summary = _generate_summary

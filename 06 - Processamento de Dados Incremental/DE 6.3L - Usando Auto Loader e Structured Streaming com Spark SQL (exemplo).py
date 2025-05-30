@@ -45,38 +45,44 @@
 
 customers_checkpoint_path = f"{DA.paths.checkpoints}/customers"
 
-query = (spark.readStream\
-  .format("cloudFiles")\
-  .option("cloudFiles.format","csv")\
-  .option("cloudFiles.schemaLocation", customers_checkpoint_path)
-  .load("/databricks-datasets/retail-org/customers/")\
-  .createOrReplaceTempView("customers_raw_temp"))
+query = (
+    spark.readStream.format("cloudFiles")
+    .option("cloudFiles.format", "csv")
+    .option("cloudFiles.schemaLocation", customers_checkpoint_path)
+    .load("/databricks-datasets/retail-org/customers/")
+    .createOrReplaceTempView("customers_raw_temp")
+)
 
 # COMMAND ----------
 
 from pyspark.sql import Row
 
-assert Row(tableName="customers_raw_temp", isTemporary=True) in spark.sql("show tables").select("tableName", "isTemporary").collect(), "Tabela não encontrada ou não é temporária"
-assert spark.table("customers_raw_temp").dtypes ==  [('customer_id', 'string'),
- ('tax_id', 'string'),
- ('tax_code', 'string'),
- ('customer_name', 'string'),
- ('state', 'string'),
- ('city', 'string'),
- ('postcode', 'string'),
- ('street', 'string'),
- ('number', 'string'),
- ('unit', 'string'),
- ('region', 'string'),
- ('district', 'string'),
- ('lon', 'string'),
- ('lat', 'string'),
- ('ship_to_address', 'string'),
- ('valid_from', 'string'),
- ('valid_to', 'string'),
- ('units_purchased', 'string'),
- ('loyalty_segment', 'string'),
- ('_rescued_data', 'string')], "Incorrect Schema"
+assert (
+    Row(tableName="customers_raw_temp", isTemporary=True)
+    in spark.sql("show tables").select("tableName", "isTemporary").collect()
+), "Tabela não encontrada ou não é temporária"
+assert spark.table("customers_raw_temp").dtypes == [
+    ("customer_id", "string"),
+    ("tax_id", "string"),
+    ("tax_code", "string"),
+    ("customer_name", "string"),
+    ("state", "string"),
+    ("city", "string"),
+    ("postcode", "string"),
+    ("street", "string"),
+    ("number", "string"),
+    ("unit", "string"),
+    ("region", "string"),
+    ("district", "string"),
+    ("lon", "string"),
+    ("lat", "string"),
+    ("ship_to_address", "string"),
+    ("valid_from", "string"),
+    ("valid_to", "string"),
+    ("units_purchased", "string"),
+    ("loyalty_segment", "string"),
+    ("_rescued_data", "string"),
+], "Incorrect Schema"
 
 # COMMAND ----------
 
@@ -98,8 +104,14 @@ assert spark.table("customers_raw_temp").dtypes ==  [('customer_id', 'string'),
 
 # COMMAND ----------
 
-assert Row(tableName="customer_count_by_state_temp", isTemporary=True) in spark.sql("show tables").select("tableName", "isTemporary").collect(), "Table not present or not temporary"
-assert spark.table("customer_count_by_state_temp").dtypes == [('state', 'string'), ('customer_count', 'bigint')], "Incorrect Schema"
+assert (
+    Row(tableName="customer_count_by_state_temp", isTemporary=True)
+    in spark.sql("show tables").select("tableName", "isTemporary").collect()
+), "Table not present or not temporary"
+assert spark.table("customer_count_by_state_temp").dtypes == [
+    ("state", "string"),
+    ("customer_count", "bigint"),
+], "Incorrect Schema"
 
 # COMMAND ----------
 
@@ -114,7 +126,7 @@ assert spark.table("customer_count_by_state_temp").dtypes == [('state', 'string'
 
 # TODO
 # customers_count_checkpoint_path = f"{DA.paths.checkpoints}/customers_count"
-# 
+#
 # query = (spark
 #   <FILL-IN>
 
@@ -124,8 +136,14 @@ DA.block_until_stream_is_ready(query)
 
 # COMMAND ----------
 
-assert Row(tableName="customer_count_by_state", isTemporary=False) in spark.sql("show tables").select("tableName", "isTemporary").collect(), "Table not present or not temporary"
-assert spark.table("customer_count_by_state").dtypes == [('state', 'string'), ('customer_count', 'bigint')], "Incorrect Schema"
+assert (
+    Row(tableName="customer_count_by_state", isTemporary=False)
+    in spark.sql("show tables").select("tableName", "isTemporary").collect()
+), "Table not present or not temporary"
+assert spark.table("customer_count_by_state").dtypes == [
+    ("state", "string"),
+    ("customer_count", "bigint"),
+], "Incorrect Schema"
 
 # COMMAND ----------
 

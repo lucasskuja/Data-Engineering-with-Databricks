@@ -79,7 +79,7 @@ DA.generate_config()
 
 # MAGIC %md
 # MAGIC
-# MAGIC <img src="https://files.training.databricks.com/images/icon_warn_32.png">  
+# MAGIC <img src="https://files.training.databricks.com/images/icon_warn_32.png">
 # MAGIC **AVISO:** Certifique-se de selecionar seu banco de dados antes de continuar, pois o comando **`USE`** ainda não altera o banco contra o qual suas consultas serão executadas.
 # MAGIC
 

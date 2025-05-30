@@ -55,13 +55,15 @@ print("This is a string")
 
 # COMMAND ----------
 
-print("""
+print(
+    """
 This 
 is 
 a 
 multi-line 
 string
-""")
+"""
+)
 
 # COMMAND ----------
 
@@ -72,10 +74,12 @@ string
 
 # COMMAND ----------
 
-print("""
+print(
+    """
 SELECT *
 FROM test_table
-""")
+"""
+)
 
 # COMMAND ----------
 
@@ -189,8 +193,10 @@ print(new_string + my_string)
 
 # COMMAND ----------
 
+
 def print_string(arg):
     print(arg)
+
 
 # COMMAND ----------
 
@@ -225,8 +231,10 @@ print_string(my_string)
 
 # COMMAND ----------
 
+
 def return_new_string(string_arg):
     return "The string passed to this function was " + string_arg
+
 
 # COMMAND ----------
 

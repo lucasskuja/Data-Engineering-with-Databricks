@@ -127,9 +127,7 @@
 
 # COMMAND ----------
 
-(spark.readStream
-    .table("bronze")
-    .createOrReplaceTempView("streaming_tmp_vw"))
+(spark.readStream.table("bronze").createOrReplaceTempView("streaming_tmp_vw"))
 
 # COMMAND ----------
 
@@ -215,7 +213,7 @@ for s in spark.streams.active:
 # COMMAND ----------
 
 # %sql
-# SELECT * 
+# SELECT *
 # FROM streaming_tmp_vw
 # ORDER BY time
 
@@ -294,13 +292,13 @@ for s in spark.streams.active:
 
 # COMMAND ----------
 
-(spark.table("device_counts_tmp_vw")                               
-    .writeStream                                                
-    .option("checkpointLocation", f"{DA.paths.checkpoints}/silver")
+(
+    spark.table("device_counts_tmp_vw")
+    .writeStream.option("checkpointLocation", f"{DA.paths.checkpoints}/silver")
     .outputMode("complete")
     .trigger(availableNow=True)
     .table("device_counts")
-    .awaitTermination() # This optional method blocks execution of the next cell until the incremental batch write has succeeded
+    .awaitTermination()  # This optional method blocks execution of the next cell until the incremental batch write has succeeded
 )
 
 # COMMAND ----------
@@ -314,12 +312,13 @@ for s in spark.streams.active:
 
 # COMMAND ----------
 
-query = (spark.table("device_counts_tmp_vw")                               
-              .writeStream                                                
-              .option("checkpointLocation", f"{DA.paths.checkpoints}/silver")
-              .outputMode("complete")
-              .trigger(processingTime='4 seconds')
-              .table("device_counts"))
+query = (
+    spark.table("device_counts_tmp_vw")
+    .writeStream.option("checkpointLocation", f"{DA.paths.checkpoints}/silver")
+    .outputMode("complete")
+    .trigger(processingTime="4 seconds")
+    .table("device_counts")
+)
 
 # Like before, wait until our stream has processed some data
 DA.block_until_stream_is_ready(query)

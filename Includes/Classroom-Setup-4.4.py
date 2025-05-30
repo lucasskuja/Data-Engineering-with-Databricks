@@ -18,5 +18,5 @@ clone_source_table("events_update", f"{DA.paths.datasets}/delta")
 
 # clone_source_table("events_raw", f"{DA.paths.datasets}/delta")
 # clone_source_table("item_lookup", f"{DA.paths.datasets}/delta")
-    
+
 DA.conclude_setup()

@@ -9,7 +9,7 @@
 
 # MAGIC %md
 # MAGIC
-# MAGIC   
+# MAGIC
 # MAGIC
 # MAGIC # Project Information
 # MAGIC

@@ -138,7 +138,7 @@ print_job_config()
 # MAGIC
 # MAGIC Agora você verá uma tela com 2 caixas e uma seta apontando para baixo entre elas.
 # MAGIC
-# MAGIC Sua tarefa **`Batch-Job`** (possivelmente renomeada) estará no topo, 
+# MAGIC Sua tarefa **`Batch-Job`** (possivelmente renomeada) estará no topo,
 # MAGIC seguida pela tarefa **`DLT-Pipeline`**.
 # MAGIC
 

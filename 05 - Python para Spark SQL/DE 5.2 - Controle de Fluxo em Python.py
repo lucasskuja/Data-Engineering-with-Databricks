@@ -142,6 +142,7 @@ else:
 
 # COMMAND ----------
 
+
 def foods_i_like(food):
     if food == "beans":
         print(f"I love {food}")
@@ -151,6 +152,7 @@ def foods_i_like(food):
         print(f"Do you have any good recipes for {food}?")
     else:
         print(f"I don't eat {food}")
+
 
 # COMMAND ----------
 
@@ -189,8 +191,10 @@ food
 
 # COMMAND ----------
 
+
 def three_times(number):
     return number * 3
+
 
 # COMMAND ----------
 
@@ -298,14 +302,16 @@ int("2")
 
 # COMMAND ----------
 
+
 def try_int(num_string):
     try:
         int(num_string)
         result = f"{num_string} is a number."
     except:
         result = f"{num_string} is not a number!"
-        
+
     print(result)
+
 
 # COMMAND ----------
 
@@ -340,6 +346,7 @@ try_int("two")
 
 # COMMAND ----------
 
+
 def three_times(number):
     try:
         return int(number) * 3
@@ -347,6 +354,7 @@ def three_times(number):
         print(f"You passed the string variable '{number}'.\n")
         print(f"Try passing an integer instead.")
         return None
+
 
 # COMMAND ----------
 
@@ -444,11 +452,13 @@ display(result)
 
 # COMMAND ----------
 
+
 def simple_query_function(query, preview=True):
     query_result = spark.sql(query)
     if preview:
         display(query_result)
     return query_result
+
 
 # COMMAND ----------
 
@@ -463,7 +473,9 @@ result = simple_query_function(query)
 
 # COMMAND ----------
 
-new_query = "CREATE OR REPLACE TEMP VIEW id_name_tmp_vw AS SELECT id, name FROM demo_tmp_vw"
+new_query = (
+    "CREATE OR REPLACE TEMP VIEW id_name_tmp_vw AS SELECT id, name FROM demo_tmp_vw"
+)
 
 simple_query_function(new_query, preview=False)
 
@@ -511,10 +523,14 @@ injection_query.find("x")
 
 # COMMAND ----------
 
+
 def injection_check(query):
     semicolon_index = query.find(";")
     if semicolon_index >= 0:
-        raise ValueError(f"Query contains semi-colon at index {semicolon_index}\nBlocking execution to avoid SQL injection attack")
+        raise ValueError(
+            f"Query contains semi-colon at index {semicolon_index}\nBlocking execution to avoid SQL injection attack"
+        )
+
 
 # COMMAND ----------
 
@@ -547,12 +563,14 @@ def injection_check(query):
 
 # COMMAND ----------
 
+
 def secure_query_function(query, preview=True):
     injection_check(query)
     query_result = spark.sql(query)
     if preview:
         display(query_result)
     return query_result
+
 
 # COMMAND ----------
 

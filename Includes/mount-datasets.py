@@ -26,7 +26,7 @@
 # MAGIC     "eu-west-1"      -> (s"s3a://${awsAccessKey}:${awsSecretKey}@databricks-corp-training-eu-west-1/common", Map[String,String]()),
 # MAGIC     "eu-west-2"      -> (s"s3a://${awsAccessKey}:${awsSecretKey}@databricks-corp-training-eu-west-2/common", Map[String,String]()),
 # MAGIC     "eu-west-3"      -> (s"s3a://${awsAccessKey}:${awsSecretKey}@databricks-corp-training-eu-central-1/common", Map[String,String]()),
-# MAGIC     
+# MAGIC
 # MAGIC     "sa-east-1"      -> (s"s3a://${awsAccessKey}:${awsSecretKey}@databricks-corp-training-sa-east-1/common", Map[String,String]()),
 # MAGIC     "us-east-1"      -> (s"s3a://${awsAccessKey}:${awsSecretKey}@databricks-corp-training-us-east-1/common", Map[String,String]()),
 # MAGIC     "us-east-2"      -> (s"s3a://${awsAccessKey}:${awsSecretKey}@databricks-corp-training-us-east-2/common", Map[String,String]()),
@@ -110,7 +110,7 @@
 # MAGIC }
 # MAGIC
 # MAGIC def retryMount(source: String, mountPoint: String): Unit = {
-# MAGIC   try { 
+# MAGIC   try {
 # MAGIC     // Mount with IAM roles instead of keys for PVC
 # MAGIC     dbutils.fs.mount(source, mountPoint)
 # MAGIC     dbutils.fs.ls(mountPoint) // Test read to confirm successful mount.
@@ -166,10 +166,10 @@
 # MAGIC     val mount = dbutils.fs.mounts().filter(_.mountPoint == mountPoint).head
 # MAGIC     if (mount.source == mntSource) {
 # MAGIC       return s"""Datasets are already mounted to <b>$mountPoint</b>."""
-# MAGIC       
+# MAGIC
 # MAGIC     } else if (failFast) {
 # MAGIC       throw new IllegalStateException(s"Expected $mntSource but found ${mount.source}")
-# MAGIC       
+# MAGIC
 # MAGIC     } else if (fix) {
 # MAGIC       println(s"Unmounting existing datasets ($mountPoint from ${mount.source}).")
 # MAGIC       dbutils.fs.unmount(mountPoint)

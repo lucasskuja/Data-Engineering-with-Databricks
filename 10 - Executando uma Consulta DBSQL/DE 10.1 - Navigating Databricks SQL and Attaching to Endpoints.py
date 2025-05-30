@@ -11,7 +11,7 @@
 # MAGIC
 # MAGIC # Navegando pelo Databricks SQL e Conectando-se a Endpoints
 # MAGIC
-# MAGIC * Navegue até o Databricks SQL  
+# MAGIC * Navegue até o Databricks SQL
 # MAGIC   * Certifique-se de que a opção SQL esteja selecionada na barra lateral do workspace (logo abaixo do logotipo do Databricks)
 # MAGIC * Certifique-se de que um endpoint SQL esteja ativo e acessível
 # MAGIC   * Vá até a seção de endpoints SQL na barra lateral

@@ -40,7 +40,7 @@
 
 # COMMAND ----------
 
-print_pipeline_config()    
+print_pipeline_config()
 
 # COMMAND ----------
 
@@ -49,16 +49,16 @@ print_pipeline_config()
 # MAGIC ## Criar e configurar um pipeline
 # MAGIC
 # MAGIC Passos:
-# MAGIC 1. Clique no botão **Jobs** na barra lateral.  
-# MAGIC 2. Selecione a guia **Delta Live Tables**.  
-# MAGIC 3. Clique em **Create Pipeline**.  
-# MAGIC 4. Informe um **Pipeline Name** — como os nomes precisam ser únicos, use o valor exibido na célula anterior.  
-# MAGIC 5. Em **Notebook Libraries**, localize e selecione o notebook **DE 9.1.3 ‑ DLT Job** (ou cole o **Notebook Path**).  
-# MAGIC 6. No campo **Target**, especifique o banco de dados mostrado ao lado de **Target** (padrão **`dbacademy_<username>_dewd_dlt_demo_91`**).  
-# MAGIC 7. No campo **Storage location**, cole o diretório exibido acima.  
-# MAGIC 8. Defina **Pipeline Mode** como **Triggered**.  
-# MAGIC 9. Desmarque **Enable autoscaling**.  
-# MAGIC 10. Defina **workers** como **1**.  
+# MAGIC 1. Clique no botão **Jobs** na barra lateral.
+# MAGIC 2. Selecione a guia **Delta Live Tables**.
+# MAGIC 3. Clique em **Create Pipeline**.
+# MAGIC 4. Informe um **Pipeline Name** — como os nomes precisam ser únicos, use o valor exibido na célula anterior.
+# MAGIC 5. Em **Notebook Libraries**, localize e selecione o notebook **DE 9.1.3 ‑ DLT Job** (ou cole o **Notebook Path**).
+# MAGIC 6. No campo **Target**, especifique o banco de dados mostrado ao lado de **Target** (padrão **`dbacademy_<username>_dewd_dlt_demo_91`**).
+# MAGIC 7. No campo **Storage location**, cole o diretório exibido acima.
+# MAGIC 8. Defina **Pipeline Mode** como **Triggered**.
+# MAGIC 9. Desmarque **Enable autoscaling**.
+# MAGIC 10. Defina **workers** como **1**.
 # MAGIC 11. Clique em **Create**.
 # MAGIC
 # MAGIC <img src="https://files.training.databricks.com/images/icon_note_24.png"> **Observação**: não executaremos este pipeline diretamente — ele será disparado pelo job mais adiante — mas, se quiser testar rapidamente, clique em **Start** agora.
@@ -86,14 +86,14 @@ print_job_config()
 # MAGIC Aqui agendaremos o próximo notebook.
 # MAGIC
 # MAGIC Passos:
-# MAGIC 1. Navegue até **Jobs** pela barra lateral esquerda do Databricks.  
-# MAGIC 2. Clique no botão azul **Create Job**.  
-# MAGIC 3. Configure a tarefa:  
-# MAGIC    1. Nome da tarefa: **`reset`**  
-# MAGIC    2. Notebook: **`DE 9.1.2 ‑ Reset`** (seletor de notebooks)  
-# MAGIC    3. **Cluster**: escolha seu cluster em **Existing All Purpose Clusters**  
-# MAGIC    4. Clique em **Create**  
-# MAGIC 4. No canto superior‑esquerdo, renomeie o job (não a tarefa) de **`reset`** para o **Job Name** gerado anteriormente.  
+# MAGIC 1. Navegue até **Jobs** pela barra lateral esquerda do Databricks.
+# MAGIC 2. Clique no botão azul **Create Job**.
+# MAGIC 3. Configure a tarefa:
+# MAGIC    1. Nome da tarefa: **`reset`**
+# MAGIC    2. Notebook: **`DE 9.1.2 ‑ Reset`** (seletor de notebooks)
+# MAGIC    3. **Cluster**: escolha seu cluster em **Existing All Purpose Clusters**
+# MAGIC    4. Clique em **Create**
+# MAGIC 4. No canto superior‑esquerdo, renomeie o job (não a tarefa) de **`reset`** para o **Job Name** gerado anteriormente.
 # MAGIC 5. Clique em **Run now** (canto superior‑direito) para iniciar o job.
 # MAGIC
 # MAGIC <img src="https://files.training.databricks.com/images/icon_note_24.png"> **Observação**: usar um cluster “all‑purpose” gera um aviso de cobrança. Jobs de produção devem usar **job clusters** dedicados, que têm custo menor.
@@ -107,8 +107,8 @@ print_job_config()
 # MAGIC
 # MAGIC Na direita da UI de Jobs, abaixo de **Job Details**, há a seção **Schedule**.
 # MAGIC
-# MAGIC Clique em **Edit schedule** para explorar as opções.  
-# MAGIC Altere **Schedule type** de **Manual** para **Scheduled** para abrir a interface de cron.  
+# MAGIC Clique em **Edit schedule** para explorar as opções.
+# MAGIC Altere **Schedule type** de **Manual** para **Scheduled** para abrir a interface de cron.
 # MAGIC Ela gera expressões cron automaticamente e permite ajustes manuais se necessário.
 # MAGIC
 # MAGIC Por enquanto, manteremos o job em **Manual**.
@@ -123,12 +123,12 @@ print_job_config()
 # MAGIC Com uma única tarefa, temos a mesma experiência do Jobs UI “legado”.
 # MAGIC
 # MAGIC Para revisar:
-# MAGIC 1. Clique na aba **Runs** (canto superior‑esquerdo).  
-# MAGIC 2. Localize a execução em **Active runs** (se ainda ativa) ou **Completed runs**.  
-# MAGIC 3. Clique no carimbo de **Start time** para abrir detalhes.  
-# MAGIC 4. Veja o painel à direita: **`Pending`**, **`Running`**, **`Succeeded`** ou **`Failed`**.  
+# MAGIC 1. Clique na aba **Runs** (canto superior‑esquerdo).
+# MAGIC 2. Localize a execução em **Active runs** (se ainda ativa) ou **Completed runs**.
+# MAGIC 3. Clique no carimbo de **Start time** para abrir detalhes.
+# MAGIC 4. Veja o painel à direita: **`Pending`**, **`Running`**, **`Succeeded`** ou **`Failed`**.
 # MAGIC
-# MAGIC O notebook usa o comando mágico **`%run`** para chamar outro notebook por caminho relativo.  
+# MAGIC O notebook usa o comando mágico **`%run`** para chamar outro notebook por caminho relativo.
 # MAGIC O efeito final é resetar o ambiente para o novo job e pipeline.
 # MAGIC
 
@@ -141,15 +141,15 @@ print_job_config()
 # MAGIC Agora adicionaremos o pipeline DLT para ser executado após a tarefa inicial.
 # MAGIC
 # MAGIC Passos:
-# MAGIC 1. Na parte superior‑esquerda, troque para a aba **Tasks**.  
-# MAGIC 2. Clique no círculo azul **+** no rodapé para nova tarefa.  
-# MAGIC    1. **Task name**: **`dlt`**  
-# MAGIC    2. **Type**: **Delta Live Tables pipeline**  
-# MAGIC    3. **Pipeline**: selecione o pipeline criado (começa com **Jobs‑Demo‑91**).  
-# MAGIC    4. **Depends on** já deve apontar para a tarefa **reset** (pode estar renomeada).  
+# MAGIC 1. Na parte superior‑esquerda, troque para a aba **Tasks**.
+# MAGIC 2. Clique no círculo azul **+** no rodapé para nova tarefa.
+# MAGIC    1. **Task name**: **`dlt`**
+# MAGIC    2. **Type**: **Delta Live Tables pipeline**
+# MAGIC    3. **Pipeline**: selecione o pipeline criado (começa com **Jobs‑Demo‑91**).
+# MAGIC    4. **Depends on** já deve apontar para a tarefa **reset** (pode estar renomeada).
 # MAGIC    5. Clique em **Create task**.
 # MAGIC
-# MAGIC Você verá dois blocos conectados por seta: **reset** → **dlt**.  
+# MAGIC Você verá dois blocos conectados por seta: **reset** → **dlt**.
 # MAGIC Clique em **Run now** para executar o job.
 # MAGIC
 # MAGIC **OBS:** aguarde alguns minutos para provisionamento da infraestrutura.
@@ -161,7 +161,7 @@ print_job_config()
 # MAGIC
 # MAGIC ## Revisar Resultados de Execução Multi‑Task
 # MAGIC
-# MAGIC Volte à aba **Runs** e abra a execução mais recente.  
+# MAGIC Volte à aba **Runs** e abra a execução mais recente.
 # MAGIC O diagrama de tarefas se atualiza em tempo real, indicando estados e falhas.
 # MAGIC
 # MAGIC Clicar em uma caixa abre o notebook agendado ou redireciona para a UI do pipeline DLT.

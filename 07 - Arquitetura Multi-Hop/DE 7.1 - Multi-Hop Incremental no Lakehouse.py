@@ -112,13 +112,14 @@ DA.data_factory.load()
 
 # COMMAND ----------
 
-(spark.readStream
-    .format("cloudFiles")
+(
+    spark.readStream.format("cloudFiles")
     .option("cloudFiles.format", "json")
     .option("cloudFiles.schemaHints", "time DOUBLE")
     .option("cloudFiles.schemaLocation", f"{DA.paths.checkpoints}/bronze")
     .load(DA.paths.data_landing_location)
-    .createOrReplaceTempView("recordings_raw_temp"))
+    .createOrReplaceTempView("recordings_raw_temp")
+)
 
 # COMMAND ----------
 
@@ -144,12 +145,13 @@ DA.data_factory.load()
 
 # COMMAND ----------
 
-(spark.table("recordings_bronze_temp")
-      .writeStream
-      .format("delta")
-      .option("checkpointLocation", f"{DA.paths.checkpoints}/bronze")
-      .outputMode("append")
-      .table("bronze"))
+(
+    spark.table("recordings_bronze_temp")
+    .writeStream.format("delta")
+    .option("checkpointLocation", f"{DA.paths.checkpoints}/bronze")
+    .outputMode("append")
+    .table("bronze")
+)
 
 # COMMAND ----------
 
@@ -175,12 +177,13 @@ DA.data_factory.load()
 
 # COMMAND ----------
 
-(spark.read
-      .format("csv")
-      .schema("mrn STRING, name STRING")
-      .option("header", True)
-      .load(f"{DA.paths.data_source}/patient/patient_info.csv")
-      .createOrReplaceTempView("pii"))
+(
+    spark.read.format("csv")
+    .schema("mrn STRING, name STRING")
+    .option("header", True)
+    .load(f"{DA.paths.data_source}/patient/patient_info.csv")
+    .createOrReplaceTempView("pii")
+)
 
 # COMMAND ----------
 
@@ -201,9 +204,7 @@ DA.data_factory.load()
 
 # COMMAND ----------
 
-(spark.readStream
-  .table("bronze")
-  .createOrReplaceTempView("bronze_tmp"))
+(spark.readStream.table("bronze").createOrReplaceTempView("bronze_tmp"))
 
 # COMMAND ----------
 
@@ -217,12 +218,13 @@ DA.data_factory.load()
 
 # COMMAND ----------
 
-(spark.table("recordings_w_pii")
-      .writeStream
-      .format("delta")
-      .option("checkpointLocation", f"{DA.paths.checkpoints}/recordings_enriched")
-      .outputMode("append")
-      .table("recordings_enriched"))
+(
+    spark.table("recordings_w_pii")
+    .writeStream.format("delta")
+    .option("checkpointLocation", f"{DA.paths.checkpoints}/recordings_enriched")
+    .outputMode("append")
+    .table("recordings_enriched")
+)
 
 # COMMAND ----------
 
@@ -251,9 +253,11 @@ DA.data_factory.load()
 
 # COMMAND ----------
 
-(spark.readStream
-  .table("recordings_enriched")
-  .createOrReplaceTempView("recordings_enriched_temp"))
+(
+    spark.readStream.table("recordings_enriched").createOrReplaceTempView(
+        "recordings_enriched_temp"
+    )
+)
 
 # COMMAND ----------
 
@@ -278,13 +282,14 @@ DA.data_factory.load()
 
 # COMMAND ----------
 
-(spark.table("patient_avg")
-      .writeStream
-      .format("delta")
-      .outputMode("complete")
-      .option("checkpointLocation", f"{DA.paths.checkpoints}/daily_avg")
-      .trigger(availableNow=True)
-      .table("daily_patient_avg"))
+(
+    spark.table("patient_avg")
+    .writeStream.format("delta")
+    .outputMode("complete")
+    .option("checkpointLocation", f"{DA.paths.checkpoints}/daily_avg")
+    .trigger(availableNow=True)
+    .table("daily_patient_avg")
+)
 
 # COMMAND ----------
 
@@ -294,7 +299,7 @@ DA.data_factory.load()
 # MAGIC
 # MAGIC Ao usar o modo de saída **`complete`**, reescrevemos todo o estado da tabela a cada execução. Isso é ideal para calcular agregações, mas **não** podemos ler uma stream a partir desse diretório, pois o Structured Streaming espera apenas acréscimos nos dados upstream.
 # MAGIC
-# MAGIC **NOTA**: Algumas opções podem ser definidas para alterar esse comportamento, mas com limitações. Para mais detalhes, consulte:  
+# MAGIC **NOTA**: Algumas opções podem ser definidas para alterar esse comportamento, mas com limitações. Para mais detalhes, consulte:
 # MAGIC <a href="https://docs.databricks.com/delta/delta-streaming.html#ignoring-updates-and-deletes" target="_blank">Delta Streaming: Ignorando Atualizações e Exclusões</a>.
 # MAGIC
 # MAGIC A tabela gold registrada fará uma leitura estática do estado atual dos dados a cada execução da consulta.
@@ -315,7 +320,7 @@ DA.data_factory.load()
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC SELECT * 
+# MAGIC SELECT *
 # MAGIC FROM daily_patient_avg
 # MAGIC WHERE date BETWEEN "2020-01-17" AND "2020-01-31"
 
@@ -360,11 +365,11 @@ DA.cleanup()
 # MAGIC
 # MAGIC ## Tópicos e Recursos Adicionais
 # MAGIC
-# MAGIC * <a href="https://docs.databricks.com/delta/delta-streaming.html" target="_blank">Leituras e Escritas com Streaming em Tabelas Delta</a>  
-# MAGIC * <a href="https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html" target="_blank">Guia de Programação do Structured Streaming</a>  
-# MAGIC * <a href="https://www.youtube.com/watch?v=rl8dIzTpxrI" target="_blank">Deep Dive em Structured Streaming</a>, por Tathagata Das  
-# MAGIC * <a href="https://databricks.com/glossary/lambda-architecture" target="_blank">Lambda Architecture</a>  
-# MAGIC * <a href="https://bennyaustin.wordpress.com/2010/05/02/kimball-and-inmon-dw-models/#" target="_blank">Modelos de Data Warehouse</a>  
+# MAGIC * <a href="https://docs.databricks.com/delta/delta-streaming.html" target="_blank">Leituras e Escritas com Streaming em Tabelas Delta</a>
+# MAGIC * <a href="https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html" target="_blank">Guia de Programação do Structured Streaming</a>
+# MAGIC * <a href="https://www.youtube.com/watch?v=rl8dIzTpxrI" target="_blank">Deep Dive em Structured Streaming</a>, por Tathagata Das
+# MAGIC * <a href="https://databricks.com/glossary/lambda-architecture" target="_blank">Lambda Architecture</a>
+# MAGIC * <a href="https://bennyaustin.wordpress.com/2010/05/02/kimball-and-inmon-dw-models/#" target="_blank">Modelos de Data Warehouse</a>
 # MAGIC * <a href="http://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html" target="_blank">Criar uma Fonte Kafka em Streaming</a>
 # MAGIC
 

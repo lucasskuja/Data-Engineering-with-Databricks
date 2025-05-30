@@ -77,7 +77,7 @@ print_pipeline_config()
 # MAGIC     * Clique em **`Add configuration`**.
 # MAGIC     * No campo **Key**, digite **`source`**.
 # MAGIC     * No campo **Value**, digite o valor de **Source** especificado acima.
-# MAGIC 7. No campo **Target**, informe o nome do banco de dados impresso ao lado de **Target** na célula acima.  
+# MAGIC 7. No campo **Target**, informe o nome do banco de dados impresso ao lado de **Target** na célula acima.
 # MAGIC     Deve seguir o padrão **`dbacademy_<usuário>_dewd_cap_12`**.
 # MAGIC 8. No campo **Storage location**, copie o diretório indicado acima.
 # MAGIC 9. Para **Pipeline Mode**, selecione **Continuous**.

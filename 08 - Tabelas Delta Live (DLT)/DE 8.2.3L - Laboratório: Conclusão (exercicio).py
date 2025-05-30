@@ -9,7 +9,7 @@
 
 # MAGIC %md
 # MAGIC
-# MAGIC # Laboratório: Conclusão  
+# MAGIC # Laboratório: Conclusão
 # MAGIC Execute a célula seguinte para configurar o ambiente do laboratório:
 # MAGIC
 
@@ -78,7 +78,7 @@ DA.cleanup()
 # MAGIC
 # MAGIC ## Tópicos e Recursos Adicionais
 # MAGIC
-# MAGIC * <a href="https://docs.databricks.com/data-engineering/delta-live-tables/index.html" target="_blank">Documentação Delta Live Tables</a>  
+# MAGIC * <a href="https://docs.databricks.com/data-engineering/delta-live-tables/index.html" target="_blank">Documentação Delta Live Tables</a>
 # MAGIC * <a href="https://youtu.be/6Q8qPZ7c1O0" target="_blank">Demonstração Delta Live Tables</a>
 # MAGIC
 

@@ -11,11 +11,11 @@
 # MAGIC
 # MAGIC # Criar e Gerenciar Clusters Interativos
 # MAGIC
-# MAGIC Um cluster do Databricks é um conjunto de recursos computacionais e configurações nos quais você executa cargas de trabalho de engenharia de dados, ciência de dados e análise de dados, como pipelines de ETL em produção, análises de streaming, análises ad-hoc e aprendizado de máquina.  
+# MAGIC Um cluster do Databricks é um conjunto de recursos computacionais e configurações nos quais você executa cargas de trabalho de engenharia de dados, ciência de dados e análise de dados, como pipelines de ETL em produção, análises de streaming, análises ad-hoc e aprendizado de máquina.
 # MAGIC Você executa essas cargas de trabalho como um conjunto de comandos em um notebook ou como um trabalho automatizado.
 # MAGIC
-# MAGIC O Databricks faz uma distinção entre clusters de uso geral e clusters de trabalho (job clusters).  
-# MAGIC - Você usa **clusters de uso geral** para analisar dados de forma colaborativa utilizando notebooks interativos.  
+# MAGIC O Databricks faz uma distinção entre clusters de uso geral e clusters de trabalho (job clusters).
+# MAGIC - Você usa **clusters de uso geral** para analisar dados de forma colaborativa utilizando notebooks interativos.
 # MAGIC - Você usa **clusters de trabalho** para executar trabalhos automatizados de forma rápida e robusta.
 # MAGIC
 # MAGIC Esta demonstração abordará a criação e o gerenciamento de clusters de uso geral no Databricks, usando o ambiente **Data Science & Engineering Workspace**.
@@ -24,7 +24,7 @@
 # MAGIC
 # MAGIC Ao final desta lição, você deverá ser capaz de:
 # MAGIC
-# MAGIC - Usar a interface de Clusters para configurar e implantar um cluster  
+# MAGIC - Usar a interface de Clusters para configurar e implantar um cluster
 # MAGIC - Editar, encerrar, reiniciar e excluir clusters
 
 # COMMAND ----------
