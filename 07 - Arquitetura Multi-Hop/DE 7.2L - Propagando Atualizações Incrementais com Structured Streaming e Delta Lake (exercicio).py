@@ -100,9 +100,9 @@ assert spark.table("bronze").dtypes ==  [('customer_id', 'string'), ('tax_id', '
 
 # MAGIC %sql
 # MAGIC -- TODO
-# MAGIC CREATE OR REPLACE TEMPORARY VIEW bronze_enhanced_temp AS
-# MAGIC SELECT
-# MAGIC   <FILL-IN>
+# MAGIC --CREATE OR REPLACE TEMPORARY VIEW bronze_enhanced_temp AS
+# MAGIC --SELECT
+# MAGIC --  <FILL-IN>
 
 # COMMAND ----------
 
@@ -130,11 +130,11 @@ assert spark.table("bronze_enhanced_temp").isStreaming, "Not a streaming table"
 # COMMAND ----------
 
 # TODO
-silver_checkpoint_path = f"{DA.paths.checkpoints}/silver"
-
-query = (spark.table("bronze_enhanced_temp")
-  <FILL-IN>
-  .table("silver"))
+#silver_checkpoint_path = f"{DA.paths.checkpoints}/silver"
+#
+#query = (spark.table("bronze_enhanced_temp")
+#  <FILL-IN>
+#  .table("silver"))
 
 # COMMAND ----------
 
@@ -163,10 +163,10 @@ assert spark.table("silver").filter("postcode <= 0").count() == 0, "Null postcod
 
 # COMMAND ----------
 
-(spark
-  .readStream
-  .table("silver")
-  .createOrReplaceTempView("silver_temp"))
+#(spark
+#  .readStream
+#  .table("silver")
+#  .createOrReplaceTempView("silver_temp"))
 
 # COMMAND ----------
 
@@ -181,9 +181,9 @@ assert spark.table("silver").filter("postcode <= 0").count() == 0, "Null postcod
 
 # MAGIC %sql
 # MAGIC -- TODO
-# MAGIC CREATE OR REPLACE TEMPORARY VIEW customer_count_temp AS
-# MAGIC SELECT 
-# MAGIC <FILL-IN>
+# MAGIC --CREATE OR REPLACE TEMPORARY VIEW customer_count_temp AS
+# MAGIC --SELECT 
+# MAGIC --<FILL-IN>
 
 # COMMAND ----------
 
@@ -208,13 +208,13 @@ assert spark.table("customer_count_temp").dtypes ==  [('state', 'string'), ('cus
 # COMMAND ----------
 
 # TODO
-customers_count_checkpoint_path = f"{DA.paths.checkpoints}/customers_counts"
-
-query = (spark
-  .table("customer_count_temp")
-  .writeStream
-  <FILL-IN>
-  .table("gold_customer_count_by_state"))
+#customers_count_checkpoint_path = f"{DA.paths.checkpoints}/customers_counts"
+#
+#query = (spark
+#  .table("customer_count_temp")
+#  .writeStream
+#  <FILL-IN>
+#  .table("gold_customer_count_by_state"))
 
 # COMMAND ----------
 

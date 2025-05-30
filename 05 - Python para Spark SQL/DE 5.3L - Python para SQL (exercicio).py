@@ -246,13 +246,13 @@ display(results)
 
 # TODO
 def preview_values(state=None, render_results=None):
-    query = <FILL-IN>
+    query = "SELECT * FROM table_name WHERE condition" 
 
     if state is not None:
-        <FILL-IN>
+        None
 
     if render_results
-        <FILL-IN>
+        None
 
 
 # COMMAND ----------
