@@ -80,6 +80,7 @@ def _start_pipeline():
     "Provided by DBAcademy, this function starts the pipeline and then blocks until it has completed, failed or was canceled"
 
     import time
+
     from dbacademy.dbrest import DBAcademyRestClient
 
     client = DBAcademyRestClient()

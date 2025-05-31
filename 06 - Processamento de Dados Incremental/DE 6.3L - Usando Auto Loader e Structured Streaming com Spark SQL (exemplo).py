@@ -43,6 +43,8 @@
 
 # COMMAND ----------
 
+from pyspark.sql import Row
+
 customers_checkpoint_path = f"{DA.paths.checkpoints}/customers"
 
 query = (
@@ -55,7 +57,6 @@ query = (
 
 # COMMAND ----------
 
-from pyspark.sql import Row
 
 assert (
     Row(tableName="customers_raw_temp", isTemporary=True)

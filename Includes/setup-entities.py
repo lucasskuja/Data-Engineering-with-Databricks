@@ -1,5 +1,9 @@
 # Databricks notebook source
-import sys, subprocess, os
+import os
+import subprocess
+import sys
+
+from dbacademy import LessonConfig
 
 subprocess.check_call(
     [
@@ -11,7 +15,6 @@ subprocess.check_call(
     ]
 )
 
-from dbacademy import LessonConfig
 
 LessonConfig.configure(
     course_name="Databases Tables and Views on Databricks", use_db=False

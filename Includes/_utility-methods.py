@@ -33,7 +33,8 @@ class Paths:
 
 class DBAcademyHelper:
     def __init__(self, lesson=None):
-        import re, time
+        import re
+        import time
 
         self.start = int(time.time())
 

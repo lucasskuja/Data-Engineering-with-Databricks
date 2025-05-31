@@ -14,8 +14,8 @@ def print_sql(rows, sql):
 
 
 def _generate_query():
-    import re
     import random
+    import re
 
     print_sql(
         23,

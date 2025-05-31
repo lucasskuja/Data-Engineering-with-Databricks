@@ -40,6 +40,10 @@
 
 # COMMAND ----------
 
+import re
+
+import pyspark.sql.dataframe
+
 course = "dewd"
 
 # COMMAND ----------
@@ -77,7 +81,6 @@ display(df)
 
 # COMMAND ----------
 
-import re
 
 username = spark.sql("SELECT current_user()").first()[0]
 clean_username = re.sub("[^a-zA-Z0-9]", "_", username)
@@ -274,7 +277,6 @@ display(results)
 
 # COMMAND ----------
 
-import pyspark.sql.dataframe
 
 assert (
     type(preview_values()) == pyspark.sql.dataframe.DataFrame
